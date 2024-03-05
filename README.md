@@ -25,5 +25,13 @@ You need to build a small application that accomplishes the following:
 - Adapt UI to mobile orientation changes and iPad
 - Add more items as you wish
 - Application should permit login with facebook and google.
+- Layout
 
+For layouts you can take ideas from:
+
+https://dribbble.com/
+
+You project starts Wednesday, 6 of March and you need to make your last commit at 18h of Thursday , 14 of March
+
+GOOD LUCK !!
 
