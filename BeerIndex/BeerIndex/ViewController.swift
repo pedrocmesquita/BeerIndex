@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // Get all beers from API
+        getBeers.sharedInstance.fetchBeers()
+        
+        // Get beer with id 4
+        getBeers.sharedInstance.fetchBeerById(4)
     }
 
 
