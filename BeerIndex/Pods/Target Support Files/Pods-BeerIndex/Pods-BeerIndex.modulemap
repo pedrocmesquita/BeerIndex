@@ -1,0 +1,6 @@
+framework module Pods_BeerIndex {
+  umbrella header "Pods-BeerIndex-umbrella.h"
+
+  export *
+  module * { export * }
+}
