@@ -24,12 +24,22 @@
                                     <action selector="OnClickGoogleBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TfH-3k-a7t"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5e-hH-NcB">
+                                <rect key="frame" x="170.66666666666666" y="481.66666666666669" width="52" height="35.000000000000057"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Out"/>
+                                <connections>
+                                    <action selector="LogOutGoogle:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7SN-qL-4qb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="o4y-eV-Ejs" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Wuw-Y8-lln"/>
                             <constraint firstItem="o4y-eV-Ejs" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Ysp-2F-uT5"/>
+                            <constraint firstItem="I5e-hH-NcB" firstAttribute="top" secondItem="o4y-eV-Ejs" secondAttribute="bottom" constant="38.329999999999998" id="teO-5O-pUE"/>
+                            <constraint firstItem="I5e-hH-NcB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="yIL-La-G3p"/>
                         </constraints>
                     </view>
                 </viewController>

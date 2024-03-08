@@ -16,6 +16,16 @@ class LoginViewController: UIViewController {
     @IBAction func OnClickGoogleBtn(_ sender: Any) {
         handleSignInWithGoogle();
     }
+    
+    @IBAction func LogOutGoogle(_ sender: UIButton) {
+        
+        if let unwrappedpass = User.current?.email {
+            print("Email: \(unwrappedpass)") //Password is $tr0ngp@$$w0rd
+        }
+        logoutCurrentUser()
+        print("AAA")
+    }
+    
 }
 
 extension LoginViewController {
@@ -52,7 +62,6 @@ extension LoginViewController {
         // since no logout button yet.
         // we logout previous user before
         // login again
-        logoutCurrentUser();
         
         // Start the sign in flow!
         
@@ -93,16 +102,51 @@ extension LoginViewController {
                     self?.showMessage(title: "Success", message:
                                         "\(user.FullName!) signed in successfully!")
                     
+                    /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "Main") as! ViewController
+                    self?.navigationController?.pushViewController(viewController, animated: true)*/
+                    
                 case .failure(let error):
                     // Handle the error if the login process failed
                     self?.showMessage(title: "Failed to sign in", message: error.message)
                 }
             }
         }
+        
+        
     }
-
     
     func logoutCurrentUser() {
+        let currentUser = User.current
+        
+        // Executa a operação de logout em uma fila de background
+        DispatchQueue.global(qos: .background).async {
+            
+            if((currentUser) != nil) {
+                // Logout do usuário do Parse
+                do {
+                    try User.logout()
+                    print("previous user logged out!")
+                } catch {
+                    print("No user to logout")
+                }
+            }
+            
+            // Logout do Google
+            if (GIDSignIn.sharedInstance.hasPreviousSignIn()){
+                GIDSignIn.sharedInstance.signOut();
+            }
+            
+            // Exibe uma mensagem na thread principal
+            DispatchQueue.main.async {
+                print("Usuário desconectado de todos os serviços")
+            }
+        }
+    }
+
+
+    
+    /*func logoutCurrentUser() {
         let currentUser = User.current;
         
         // handel signout in parse swift
@@ -121,7 +165,7 @@ extension LoginViewController {
         if (GIDSignIn.sharedInstance.hasPreviousSignIn()){
             GIDSignIn.sharedInstance.signOut();
         }
-    }
+    }*/
     
     func fillInMissenUserData(GoogleUser: GIDGoogleUser, regularUser: User)-> User{
         var user = regularUser;
@@ -157,10 +201,13 @@ extension LoginViewController {
 extension UIViewController {
     
     func showMessage(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
-        
-        present(alertController, animated: true)
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            
+            self.present(alertController, animated: true)
+            }
     }
 }
