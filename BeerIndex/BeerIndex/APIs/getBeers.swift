@@ -12,19 +12,21 @@ class getBeers {
     static let sharedInstance = getBeers()
     
     // Get all the beers available in the API
-    func fetchBeers(){
+    func fetchBeers(completion: @escaping ([Beer]?, Error?) -> Void){
         let url = "https://api.punkapi.com/v2/beers";
           AF.request(url).responseData { response in
               switch response.result {
               case .success(let data):
                   do {
-                      
                       let jsonData = try JSONDecoder().decode([Beer].self, from: data)
-                      print(jsonData)
+                      completion(jsonData, nil)
+                      //print(jsonData)
                   } catch {
+                      completion(nil, error)
                       print("Decoding error: \(error)")
                   }
               case .failure(let error):
+                  completion(nil, error)
                   print("Request error: \(error.localizedDescription)")
               }
           }

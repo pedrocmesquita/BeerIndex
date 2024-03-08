@@ -26,7 +26,7 @@ class ViewController: UIViewController {
     
     @IBAction func viewAPI(_ sender: Any) {
         // Get all beers from API
-        getBeers.sharedInstance.fetchBeers()
+        //getBeers.sharedInstance.fetchBeers()
         
         // Get beer with id 4
         //getBeers.sharedInstance.fetchBeerById(4)
