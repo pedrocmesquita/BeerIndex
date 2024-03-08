@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         getBeers.sharedInstance.fetchBeerById(4)
     }
 
+    @IBAction func seuBotao(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+
 
 }
 
