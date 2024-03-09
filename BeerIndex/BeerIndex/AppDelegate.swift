@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ParseSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,23 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        ParseSwift.initialize(applicationId: "wdWuYqiQ4aJplZT7LposcPfgSE954iDGZc4Wemgo",
-                                     clientKey: "es3xQgo1frfvFeKI64yt8BQM9Mscuk2NiWCFEazG",
-                                     serverURL: URL(string: "https://parseapi.back4app.com")!)
-               
-               //test that parse works
-       //        var score = GameScore()
-       //        score.playerName = "Kingsley"
-       //        score.points = 13
-       //
-       //        score.save { result in
-       //                    switch result {
-       //                    case .success(let savedScore):
-       //                        print("✅ Parse Object SAVED!: Player: \(String(describing: savedScore.playerName)), Score: \(String(describing: savedScore.points))")
-       //                    case .failure(let error):
-       //                        assertionFailure("Error saving: \(error)")
-       //                    }
-       //                }
         return true
     }
 
