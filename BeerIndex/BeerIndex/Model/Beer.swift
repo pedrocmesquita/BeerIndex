@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Beer: Codable{
+struct Beer: Codable, Hashable{
     let id: Int?
     let name: String?
     let tagline: String?
@@ -29,6 +29,16 @@ struct Beer: Codable{
     let food_pairing: [String]?
     let brewer_tips: String?
     let contributed_by: String?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
+       
+    static func ==(lhs: Beer, rhs: Beer) -> Bool {
+        return lhs.id == rhs.id &&
+        lhs.name == rhs.name
+    }
 }
 
 struct Volume: Codable{

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddToCartDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var logo: UIImageView!
@@ -16,6 +16,8 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     @IBOutlet weak var cartButton: UIBarButtonItem!
     
     var beers: [Beer] = []
+    
+    var shoppingCart = MyItens.shared.shoppingCart
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,10 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         if let ShoppingCart = storyboard.instantiateViewController(withIdentifier: "shoppingCartView") as? ShoppingCart {
             self.navigationController?.pushViewController(ShoppingCart, animated: true)
         }
+    }
+    
+    func addToCart(beer: Beer) {
+        shoppingCart.addItem(beer)
     }
 }
 
@@ -87,6 +93,7 @@ extension BeerIndex {
             
             let beer = beers[indexPath.row]
             cell.configure(with: beer)
+        cell.delegate = self
             
             return cell
         

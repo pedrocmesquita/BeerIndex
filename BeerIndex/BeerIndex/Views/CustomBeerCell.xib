@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,6 +29,16 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6I-e8-Lh6">
+                    <rect key="frame" x="100" y="192" width="50" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="N7f-Co-TER"/>
+                        <constraint firstAttribute="height" constant="35" id="ZaM-dH-7ot"/>
+                    </constraints>
+                    <color key="tintColor" systemColor="systemYellowColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -37,17 +47,21 @@
                 <constraint firstItem="6tK-YB-wa5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="3" id="7H2-Ly-ETP"/>
                 <constraint firstAttribute="bottom" secondItem="6tK-YB-wa5" secondAttribute="bottom" constant="34" id="94Y-nh-afF"/>
                 <constraint firstItem="6tK-YB-wa5" firstAttribute="top" secondItem="oDM-i0-MBn" secondAttribute="bottom" constant="20" id="FTe-NW-owA"/>
+                <constraint firstItem="j6I-e8-Lh6" firstAttribute="leading" secondItem="4u2-z5-DQT" secondAttribute="trailing" constant="4" id="G87-Vx-2wf"/>
                 <constraint firstItem="4u2-z5-DQT" firstAttribute="top" secondItem="6tK-YB-wa5" secondAttribute="bottom" constant="3" id="HdU-0i-JZl"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6tK-YB-wa5" secondAttribute="trailing" constant="3" id="IAA-PX-RL3"/>
                 <constraint firstItem="oDM-i0-MBn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="NtN-MR-Gsp"/>
                 <constraint firstItem="6tK-YB-wa5" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="SHV-WK-k4t"/>
                 <constraint firstItem="4u2-z5-DQT" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Tyn-0x-J61"/>
                 <constraint firstAttribute="trailing" secondItem="oDM-i0-MBn" secondAttribute="trailing" constant="20" id="XCe-df-F0Y"/>
+                <constraint firstItem="j6I-e8-Lh6" firstAttribute="centerY" secondItem="4u2-z5-DQT" secondAttribute="centerY" id="bcM-FY-S0U"/>
+                <constraint firstItem="4u2-z5-DQT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tnD-lF-lAf"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="AddCartBeer" destination="j6I-e8-Lh6" id="UWu-HF-QUy"/>
                 <outlet property="idView" destination="4u2-z5-DQT" id="3a9-m4-IbA"/>
                 <outlet property="imageView" destination="oDM-i0-MBn" id="wJT-ck-wKz"/>
                 <outlet property="labelView" destination="6tK-YB-wa5" id="qaG-qu-ven"/>
@@ -56,8 +70,12 @@
         </view>
     </objects>
     <resources>
+        <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
