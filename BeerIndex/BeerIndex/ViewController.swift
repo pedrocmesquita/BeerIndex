@@ -23,6 +23,11 @@ class ViewController: UIViewController {
                 self.navigationController?.pushViewController(viewControllerB, animated: true)
             }
     }
+    @IBAction func Login(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
     
     @IBAction func viewAPI(_ sender: Any) {
         // Get all beers from API

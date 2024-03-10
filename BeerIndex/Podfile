@@ -7,4 +7,9 @@ target 'BeerIndex' do
 
   # Pods for BeerIndex
 	pod 'Alamofire', '~> 5.6'
+
+pod 'GoogleSignIn'
+pod 'GoogleSignInSwiftSupport'
+pod 'ParseSwift'
+
 end

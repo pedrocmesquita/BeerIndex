@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wAH-u9-d2m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wAH-u9-d2m">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,14 +32,25 @@
                                     <action selector="viewAPI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ak6-aM-9gr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRf-ss-KbW">
+                                <rect key="frame" x="163" y="560" width="67" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
+                                <connections>
+                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TpH-EG-kcI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="FZJ-tq-l5Y" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Dly-ip-aUK"/>
+                            <constraint firstItem="aRf-ss-KbW" firstAttribute="top" secondItem="FZJ-tq-l5Y" secondAttribute="bottom" constant="52.666666666666686" id="FXf-yS-Axu"/>
+                            <constraint firstItem="aRf-ss-KbW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="163" id="Gjx-6U-XNp"/>
                             <constraint firstItem="FgH-uF-cOj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ho7-WU-SUc"/>
                             <constraint firstItem="FZJ-tq-l5Y" firstAttribute="top" secondItem="FgH-uF-cOj" secondAttribute="bottom" constant="35" id="iPG-56-vff"/>
                             <constraint firstItem="FgH-uF-cOj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="300" id="r77-Lz-j3U"/>
+                            <constraint firstItem="aRf-ss-KbW" firstAttribute="centerX" secondItem="FZJ-tq-l5Y" secondAttribute="centerX" id="rJk-CQ-Fb3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="koh-kM-o9p"/>

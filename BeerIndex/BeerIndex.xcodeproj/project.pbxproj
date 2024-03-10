@@ -16,6 +16,9 @@
 		2D19A9F62B99571700390648 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D19A9F42B99571700390648 /* LaunchScreen.storyboard */; };
 		2D3194F92B9A01B9001E5797 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3194F82B9A01B9001E5797 /* Beer.swift */; };
 		2D3194FD2B9A05C9001E5797 /* getBeers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3194FC2B9A05C9001E5797 /* getBeers.swift */; };
+		2D3E909F2B9CC4460092BEB8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E909E2B9CC4460092BEB8 /* User.swift */; };
+		2D3E90A12B9CC5760092BEB8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3E90A02B9CC5760092BEB8 /* Login.storyboard */; };
+		2D3E90A32B9CC5960092BEB8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E90A22B9CC5960092BEB8 /* LoginViewController.swift */; };
 		2D667C8A2B9B3BB0002F8CF7 /* CustomBeerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667C892B9B3BB0002F8CF7 /* CustomBeerCell.swift */; };
 		2D667C8C2B9B67E8002F8CF7 /* Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D667C8B2B9B67E8002F8CF7 /* Details.swift */; };
 		2DDB62CA2B9B1DF6001B799E /* ShoppingCart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDB62C62B9B1DF6001B799E /* ShoppingCart.storyboard */; };
@@ -36,6 +39,9 @@
 		2D19A9F72B99571700390648 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D3194F82B9A01B9001E5797 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		2D3194FC2B9A05C9001E5797 /* getBeers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getBeers.swift; sourceTree = "<group>"; };
+		2D3E909E2B9CC4460092BEB8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2D3E90A02B9CC5760092BEB8 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		2D3E90A22B9CC5960092BEB8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2D667C892B9B3BB0002F8CF7 /* CustomBeerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBeerCell.swift; sourceTree = "<group>"; };
 		2D667C8B2B9B67E8002F8CF7 /* Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Details.swift; sourceTree = "<group>"; };
 		2DDB62C62B9B1DF6001B799E /* ShoppingCart.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShoppingCart.storyboard; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				2D3194F82B9A01B9001E5797 /* Beer.swift */,
+				2D3E909E2B9CC4460092BEB8 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +127,8 @@
 				2DDB62C92B9B1DF6001B799E /* BeerIndex.swift */,
 				2DDB62C72B9B1DF6001B799E /* BeerIndex.storyboard */,
 				2D667C8B2B9B67E8002F8CF7 /* Details.swift */,
+				2D3E90A02B9CC5760092BEB8 /* Login.storyboard */,
+				2D3E90A22B9CC5960092BEB8 /* LoginViewController.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -212,6 +221,7 @@
 			files = (
 				2DDB62D42B9B3A30001B799E /* CustomBeerCell.xib in Resources */,
 				2DDB62CA2B9B1DF6001B799E /* ShoppingCart.storyboard in Resources */,
+				2D3E90A12B9CC5760092BEB8 /* Login.storyboard in Resources */,
 				2D19A9F62B99571700390648 /* LaunchScreen.storyboard in Resources */,
 				2D19A9F32B99571700390648 /* Assets.xcassets in Resources */,
 				2DDB62CB2B9B1DF6001B799E /* BeerIndex.storyboard in Resources */,
@@ -276,7 +286,9 @@
 				2D667C8C2B9B67E8002F8CF7 /* Details.swift in Sources */,
 				2D3194F92B9A01B9001E5797 /* Beer.swift in Sources */,
 				2D667C8A2B9B3BB0002F8CF7 /* CustomBeerCell.swift in Sources */,
+				2D3E909F2B9CC4460092BEB8 /* User.swift in Sources */,
 				2D3194FD2B9A05C9001E5797 /* getBeers.swift in Sources */,
+				2D3E90A32B9CC5960092BEB8 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
