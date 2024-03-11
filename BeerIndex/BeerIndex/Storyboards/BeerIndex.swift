@@ -19,6 +19,10 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     var shoppingCart = MyItens.shared.shoppingCart
     
+    var currentPage = 1
+    var isLoading = false
+    var hasMoreBeers = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.backgroundImage = UIImage()
@@ -27,7 +31,7 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "CustomBeerCell", bundle: nil), forCellWithReuseIdentifier: "BeerCell")
 
-        // Get all beers from API
+        /* Get all beers from API, substitued by pagination in method loadBeers()
         getBeers.sharedInstance.fetchBeers { [weak self] (fetchedBeers, error) in
                     DispatchQueue.main.async {
                         if let fetchedBeers = fetchedBeers {
@@ -38,7 +42,9 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
                             print("Error fetching beers: \(error.localizedDescription)")
                         }
                     }
-                }
+                } */
+        
+        loadBeers()
     }
     
     func displayImage() {
@@ -54,6 +60,27 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     
     func addToCart(beer: Beer) {
         shoppingCart.addItem(beer)
+    }
+    
+    func loadBeers() {
+        guard !isLoading && hasMoreBeers else { return }
+        isLoading = true
+
+        getBeers.sharedInstance.fetchBeersPagination(page: currentPage, perPage: 20) { [weak self] (fetchedBeers, error) in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if let fetchedBeers = fetchedBeers {
+                    self?.beers.append(contentsOf: fetchedBeers)
+                    self?.collectionView.reloadData()
+                    self?.currentPage += 1
+                    if fetchedBeers.isEmpty {
+                        self?.hasMoreBeers = false
+                    }
+                } else if let error = error {
+                    print("Error fetching beers: \(error.localizedDescription)")
+                }
+            }
+        }
     }
 }
 
@@ -113,6 +140,14 @@ extension BeerIndex {
                 self.navigationController?.pushViewController(detailsController, animated: true)
             }
     }
+    
+    // pagination, basically checks when we're at the last column and loads more
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == beers.count - 1 {
+            loadBeers()
+        }
+    }
+    
 }
 
 

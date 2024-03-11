@@ -11,7 +11,7 @@ import Alamofire
 class getBeers {
     static let sharedInstance = getBeers()
     
-    // Get all the beers available in the API
+    // Get all the beers available in the API, not used since now pagination in method fetchBeersPagination
     func fetchBeers(completion: @escaping ([Beer]?, Error?) -> Void){
         let url = "https://api.punkapi.com/v2/beers";
           AF.request(url).responseData { response in
@@ -57,5 +57,24 @@ class getBeers {
               }
           }
     }
+    
+    // pagination, gets perPage beers at a time
+    func fetchBeersPagination(page: Int, perPage: Int, completion: @escaping ([Beer]?, Error?) -> Void) {
+        let url = "https://api.punkapi.com/v2/beers?page=\(page)&per_page=\(perPage)"
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let jsonData = try JSONDecoder().decode([Beer].self, from: data)
+                    completion(jsonData, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+
 }
 
