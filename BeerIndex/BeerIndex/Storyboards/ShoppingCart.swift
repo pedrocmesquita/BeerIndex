@@ -47,6 +47,16 @@ extension ShoppingCart: UITableViewDataSource, UITableViewDelegate {
         cell.nameBeer.text = beer.name
         cell.amountBeer.text = String(quantity)
         
+        if let imageURLString = beer.image_url, let imageURL = URL(string: imageURLString) {
+            DispatchQueue.global(qos: .userInitiated).async {
+                if let imageData = try? Data(contentsOf: imageURL) {
+                    DispatchQueue.main.async {
+                        cell.customImageView.image = UIImage(data: imageData)
+                    }
+                }
+            }
+        }
+        
         cell.onAddButtonTapped = {
             // Incrementar a quantidade quando o botão de adicionar é pressionado
             self.shoppingCart.addQuantity(for: beer, delta: 1)
