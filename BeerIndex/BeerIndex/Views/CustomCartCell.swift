@@ -14,15 +14,20 @@ class CustomCartCell: UITableViewCell {
     
     @IBOutlet weak var amountBeer: UILabel!
     
+    var onAddButtonTapped: (() -> Void)?
+    var onRemoveButtonTapped: (() -> Void)?
+    
     @IBAction func addAmountBeer(_ sender: UIButton) {
+        onAddButtonTapped?()
     }
     
     @IBAction func removeAmountBeer(_ sender: Any) {
+        onRemoveButtonTapped?()
     }
-    static let identifier = "CustomCartTableViewCell"
+    static let identifier = "CustomCartCell"
     
     static func nib() -> UINib {
-        return UINib(nibName: "CustomCartTableViewCell", bundle: nil)
+        return UINib(nibName: "CustomCartCell", bundle: nil)
     }
 
     override func awakeFromNib() {

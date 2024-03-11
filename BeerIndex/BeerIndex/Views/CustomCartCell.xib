@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCartTableViewCell" id="KGk-i7-Jjw" customClass="CustomCartCell" customModule="BeerIndex" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CustomCartCell" customModule="BeerIndex" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -41,7 +41,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
                         <connections>
-                            <action selector="addAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7fz-wL-9Xx"/>
+                            <action selector="addAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WjK-vi-TWu"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqd-UB-VRH">
@@ -51,7 +51,7 @@
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
                         <connections>
-                            <action selector="removeAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Tdt-Tt-Xfe"/>
+                            <action selector="removeAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G9X-HW-TQu"/>
                         </connections>
                     </button>
                 </subviews>
@@ -63,11 +63,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addAmountBeer" destination="0gu-Ik-dvt" id="dqs-Lh-06b"/>
                 <outlet property="amountBeer" destination="URq-67-UH9" id="UpM-Jw-h4M"/>
                 <outlet property="customImageView" destination="qwq-oN-T9r" id="CCj-PV-dKo"/>
                 <outlet property="nameBeer" destination="Pe9-SS-AX2" id="tU0-gi-Pbf"/>
-                <outlet property="removeAmountBeer" destination="Kqd-UB-VRH" id="KNA-re-rSy"/>
             </connections>
             <point key="canvasLocation" x="122" y="29"/>
         </tableViewCell>
