@@ -10,33 +10,33 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="CustomCartCell" customModule="BeerIndex" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="KGk-i7-Jjw" customClass="CustomCartCell" customModule="BeerIndex" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-oN-T9r">
-                        <rect key="frame" x="0.0" y="7.0000000000000018" width="19" height="28.666666666666671"/>
+                        <rect key="frame" x="0.0" y="-1" width="109" height="131.66666666666669"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="109" id="sgx-rJ-d9T"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe9-SS-AX2">
-                        <rect key="frame" x="71" y="12" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe9-SS-AX2">
+                        <rect key="frame" x="189" y="35.333333333333336" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URq-67-UH9">
-                        <rect key="frame" x="127" y="11" width="42" height="22"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URq-67-UH9">
+                        <rect key="frame" x="189" y="64.333333333333329" width="42" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-Ik-dvt">
-                        <rect key="frame" x="190" y="5" width="50" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-Ik-dvt">
+                        <rect key="frame" x="126.33333333333333" y="57.333333333333329" width="49.666666666666671" height="34.333333333333329"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
@@ -44,9 +44,8 @@
                             <action selector="addAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WjK-vi-TWu"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqd-UB-VRH">
-                        <rect key="frame" x="242" y="5" width="50" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqd-UB-VRH">
+                        <rect key="frame" x="247.99999999999997" y="56.333333333333329" width="49.666666666666657" height="34.333333333333329"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
@@ -56,9 +55,20 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qwq-oN-T9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0LW-gQ-qBp"/>
-                    <constraint firstAttribute="bottom" secondItem="qwq-oN-T9r" secondAttribute="bottom" constant="8" id="6i2-OU-RJP"/>
-                    <constraint firstItem="qwq-oN-T9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oBI-8M-YSA"/>
+                    <constraint firstItem="Kqd-UB-VRH" firstAttribute="leading" secondItem="URq-67-UH9" secondAttribute="trailing" constant="17" id="1oi-vq-VCe"/>
+                    <constraint firstItem="URq-67-UH9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="6Tu-7C-PKl"/>
+                    <constraint firstItem="Pe9-SS-AX2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="8cd-lh-GBN"/>
+                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" constant="1" id="IhO-ex-PUl"/>
+                    <constraint firstItem="Kqd-UB-VRH" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" id="JMC-FK-QfN"/>
+                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qwq-oN-T9r" secondAttribute="trailing" constant="17" id="TQx-Hj-oxD"/>
+                    <constraint firstItem="qwq-oN-T9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yu1-uJ-eZl"/>
+                    <constraint firstAttribute="bottom" secondItem="qwq-oN-T9r" secondAttribute="bottom" id="dfe-zH-DXL"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kqd-UB-VRH" secondAttribute="trailing" constant="22" id="fBC-Wa-DiI"/>
+                    <constraint firstItem="URq-67-UH9" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" constant="8" symbolic="YES" id="jJS-RJ-oTP"/>
+                    <constraint firstItem="URq-67-UH9" firstAttribute="leading" secondItem="0gu-Ik-dvt" secondAttribute="trailing" constant="13" id="mLd-jF-5lU"/>
+                    <constraint firstItem="Pe9-SS-AX2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="okn-Mq-YxP"/>
+                    <constraint firstItem="qwq-oN-T9r" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rXN-KR-4a1"/>
+                    <constraint firstItem="qwq-oN-T9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rYQ-03-L3J"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -67,7 +77,7 @@
                 <outlet property="customImageView" destination="qwq-oN-T9r" id="CCj-PV-dKo"/>
                 <outlet property="nameBeer" destination="Pe9-SS-AX2" id="tU0-gi-Pbf"/>
             </connections>
-            <point key="canvasLocation" x="122" y="29"/>
+            <point key="canvasLocation" x="120.61068702290076" y="59.507042253521128"/>
         </tableViewCell>
     </objects>
     <resources>
