@@ -67,5 +67,29 @@ extension ShoppingCart: UITableViewDataSource, UITableViewDelegate {
             navigationController?.pushViewController(detailsController, animated: true)
         }
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+       
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            // Remover a cerveja do carrinho
+            let beer = Array(self.shoppingCart.items.keys)[indexPath.row]
+            self.shoppingCart.removeItem(beer)
+            
+            // Remover a célula da tabela
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            completionHandler(true)
+        }
+        
+        // Customize the delete button
+        delete.backgroundColor = UIColor.systemYellow
+        delete.image = UIImage(systemName: "trash")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [delete])
+        return configuration
+    }
 }
 
