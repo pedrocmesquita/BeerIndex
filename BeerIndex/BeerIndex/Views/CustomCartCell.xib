@@ -52,11 +52,11 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="leading" secondItem="qwq-oN-T9r" secondAttribute="trailing" constant="-18.333333333333343" id="0uU-Tg-I9S"/>
                     <constraint firstItem="URq-67-UH9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="6Tu-7C-PKl"/>
                     <constraint firstItem="Pe9-SS-AX2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="8cd-lh-GBN"/>
                     <constraint firstItem="0gu-Ik-dvt" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" constant="1" id="E0j-0e-Wez"/>
                     <constraint firstItem="Kqd-UB-VRH" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" id="JMC-FK-QfN"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Pe9-SS-AX2" secondAttribute="trailing" constant="10" id="OzN-io-fMm"/>
                     <constraint firstItem="Kqd-UB-VRH" firstAttribute="leading" secondItem="URq-67-UH9" secondAttribute="trailing" constant="13" id="ewM-iP-GM4"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kqd-UB-VRH" secondAttribute="trailing" constant="15" id="fBC-Wa-DiI"/>
                     <constraint firstAttribute="bottom" secondItem="qwq-oN-T9r" secondAttribute="bottom" constant="10" id="fKd-v7-MXh"/>

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import GoogleSignIn
 
 class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddToCartDelegate {
     
@@ -80,6 +81,47 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
                     print("Error fetching beers: \(error.localizedDescription)")
                 }
             }
+        }
+    }
+    
+    @IBAction func logOutButton(_ sender: UIButton) {
+        logoutCurrentUser()
+    }
+    
+    func logoutCurrentUser() {
+        let currentUser = User.current
+        
+        // Executa a operação de logout em uma fila de background
+        DispatchQueue.global(qos: .background).async {
+            
+            if((currentUser) != nil) {
+                // Logout do usuário do Parse
+                do {
+                    try User.logout()
+                    print("previous user logged out!")
+                } catch {
+                    print("No user to logout")
+                }
+            }
+            
+            // Logout Google
+            if (GIDSignIn.sharedInstance.hasPreviousSignIn()){
+                GIDSignIn.sharedInstance.signOut();
+            }
+            
+            
+            
+            // Exibe uma mensagem na thread principal
+            DispatchQueue.main.async {
+                print("Utilizador desconectado de todos os serviços")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewControllerB = storyboard.instantiateViewController(withIdentifier: "Main")
+                // Hide the navigation bar on the next screen
+                viewControllerB.navigationItem.hidesBackButton = true
+                self.navigationController?.pushViewController(viewControllerB, animated: true)
+                
+            }
+            
         }
     }
 }
