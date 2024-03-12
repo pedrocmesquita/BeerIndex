@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:qwq-oN-T9r:image" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-oN-T9r">
-                        <rect key="frame" x="15" y="9.0000000000000071" width="144" height="111.66666666666669"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:qwq-oN-T9r:image" translatesAutoresizingMaskIntoConstraints="NO" id="qwq-oN-T9r">
+                        <rect key="frame" x="15" y="10" width="134.33333333333334" height="111"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe9-SS-AX2">
                         <rect key="frame" x="189.33333333333334" y="35.666666666666664" width="41.333333333333343" height="20.333333333333336"/>
@@ -27,22 +27,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URq-67-UH9">
-                        <rect key="frame" x="189" y="64" width="42" height="20.333333333333329"/>
+                        <rect key="frame" x="189.33333333333334" y="64" width="41.333333333333343" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-Ik-dvt">
-                        <rect key="frame" x="126.33333333333333" y="57" width="49.666666666666671" height="34.333333333333343"/>
-                        <color key="tintColor" systemColor="systemYellowColor"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
-                        <connections>
-                            <action selector="addAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WjK-vi-TWu"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqd-UB-VRH">
-                        <rect key="frame" x="243.99999999999997" y="56" width="49.666666666666657" height="34.333333333333343"/>
+                        <rect key="frame" x="243.66666666666666" y="56" width="49.666666666666657" height="34.333333333333343"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="minus.circle" catalog="system"/>
@@ -50,23 +41,31 @@
                             <action selector="removeAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G9X-HW-TQu"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gu-Ik-dvt">
+                        <rect key="frame" x="131" y="57" width="49.666666666666657" height="34.333333333333343"/>
+                        <color key="tintColor" systemColor="systemYellowColor"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system"/>
+                        <connections>
+                            <action selector="addAmountBeer:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WjK-vi-TWu"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Kqd-UB-VRH" firstAttribute="leading" secondItem="URq-67-UH9" secondAttribute="trailing" constant="13" id="1oi-vq-VCe"/>
+                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="leading" secondItem="qwq-oN-T9r" secondAttribute="trailing" constant="-18.333333333333343" id="0uU-Tg-I9S"/>
                     <constraint firstItem="URq-67-UH9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="6Tu-7C-PKl"/>
                     <constraint firstItem="Pe9-SS-AX2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="8cd-lh-GBN"/>
+                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" constant="1" id="E0j-0e-Wez"/>
                     <constraint firstItem="Kqd-UB-VRH" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" id="JMC-FK-QfN"/>
-                    <constraint firstAttribute="trailing" secondItem="Pe9-SS-AX2" secondAttribute="trailing" constant="40" id="Lyz-ra-JGm"/>
-                    <constraint firstItem="URq-67-UH9" firstAttribute="leading" secondItem="0gu-Ik-dvt" secondAttribute="trailing" constant="13" id="eeb-eO-9bd"/>
+                    <constraint firstItem="Kqd-UB-VRH" firstAttribute="leading" secondItem="URq-67-UH9" secondAttribute="trailing" constant="13" id="ewM-iP-GM4"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kqd-UB-VRH" secondAttribute="trailing" constant="15" id="fBC-Wa-DiI"/>
                     <constraint firstAttribute="bottom" secondItem="qwq-oN-T9r" secondAttribute="bottom" constant="10" id="fKd-v7-MXh"/>
+                    <constraint firstItem="URq-67-UH9" firstAttribute="leading" secondItem="0gu-Ik-dvt" secondAttribute="trailing" constant="8.666666666666714" id="g3Q-Ft-NJy"/>
                     <constraint firstItem="qwq-oN-T9r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="gYo-TT-v3t"/>
                     <constraint firstItem="URq-67-UH9" firstAttribute="top" secondItem="Pe9-SS-AX2" secondAttribute="bottom" constant="8" symbolic="YES" id="jJS-RJ-oTP"/>
-                    <constraint firstItem="0gu-Ik-dvt" firstAttribute="centerY" secondItem="URq-67-UH9" secondAttribute="centerY" id="nCf-0z-rSX"/>
                     <constraint firstItem="Pe9-SS-AX2" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="50" id="okn-Mq-YxP"/>
                     <constraint firstItem="Pe9-SS-AX2" firstAttribute="leading" secondItem="qwq-oN-T9r" secondAttribute="trailing" constant="40" id="qjl-zB-fdr"/>
                     <constraint firstItem="qwq-oN-T9r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="uH2-vL-Rcc"/>
-                    <constraint firstItem="URq-67-UH9" firstAttribute="leading" secondItem="qwq-oN-T9r" secondAttribute="trailing" constant="30" id="wP1-vY-Ibo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -79,7 +78,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="imageView:qwq-oN-T9r:image" catalog="system" width="115" height="128">
+        <image name="imageView:qwq-oN-T9r:image" width="115" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKywzNjlDS0xQU1UkbnVsbNcNDg8QERITFBUW
