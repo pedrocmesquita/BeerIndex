@@ -51,6 +51,10 @@ class Cart {
         }
     }
     
+    func clearCart() {
+        items.removeAll()
+    }
+    
 }
 
 // Dependency Injection

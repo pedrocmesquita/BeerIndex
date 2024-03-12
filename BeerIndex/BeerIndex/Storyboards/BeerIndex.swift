@@ -92,7 +92,7 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         let currentUser = User.current
         
         // Executa a operação de logout em uma fila de background
-        DispatchQueue.global(qos: .background).async {
+        DispatchQueue.global(qos: .background).async { [self] in
             
             if((currentUser) != nil) {
                 // Logout do usuário do Parse
@@ -108,6 +108,8 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
             if (GIDSignIn.sharedInstance.hasPreviousSignIn()){
                 GIDSignIn.sharedInstance.signOut();
             }
+            
+            shoppingCart.clearCart()
             
             
             
