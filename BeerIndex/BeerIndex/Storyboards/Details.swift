@@ -31,7 +31,7 @@ class Details: UIViewController{
         secondLabel.font = UIFont.systemFont(ofSize: 20)
         
         // URL to Image
-        if let imageURLstring = beer?.image_url{
+        /*if let imageURLstring = beer?.image_url{
             if let imageURL = URL(string: imageURLstring){
                 
                 DispatchQueue.global(qos: .userInitiated).async {
@@ -43,7 +43,20 @@ class Details: UIViewController{
                     }
                 }
             }
+        }*/
+        
+        if let imageURLstring = beer?.image_url, let imageURL = URL(string: imageURLstring) {
+            URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.imageView.image = image
+                    }
+                } else {
+                    print("Failed to load image:", error?.localizedDescription ?? "Unknown error")
+                }
+            }.resume()
         }
+
         
         // Image shadow and corners
         imageView.layer.cornerRadius = 5
