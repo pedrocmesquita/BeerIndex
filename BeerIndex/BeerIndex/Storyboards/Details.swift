@@ -17,6 +17,7 @@ class Details: UIViewController{
     @IBOutlet weak var fourthLabel: UILabel!
     @IBOutlet weak var fifthLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var shoppingCart = MyItens.shared.shoppingCart
     var beer: Beer?
     
@@ -31,6 +32,7 @@ class Details: UIViewController{
         firstLabel.font = UIFont.boldSystemFont(ofSize: 30)
         secondLabel.font = UIFont.systemFont(ofSize: 20)
         
+        scrollView.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height+30)
         // URL to Image
         /*if let imageURLstring = beer?.image_url{
             if let imageURL = URL(string: imageURLstring){
@@ -95,7 +97,6 @@ class Details: UIViewController{
         }
         
         fourthLabel.attributedText = volume
-        print(volume)
         
         // FIRST BREWED
         

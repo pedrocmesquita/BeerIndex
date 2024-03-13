@@ -16,6 +16,7 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cartButton: UIBarButtonItem!
     
+    
     var beers: [Beer] = []
     
     var shoppingCart = MyItens.shared.shoppingCart
@@ -24,6 +25,69 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var isLoading = false
     var hasMoreBeers = true
     var isSearchMode = false
+    
+    // Test beer to use since API was down on 13/03
+    let testBeer = Beer(
+        id: 192,
+        name: "Punk IPA 2007 - 2010",
+        tagline: "Post Modern Classic. Spiky. Tropical. Hoppy.",
+        first_brewed: "04/2007",
+        description: "Our flagship beer that kick started the craft beer revolution. This is James and Martin's original take on an American IPA, subverted with punchy New Zealand hops. Layered with new world hops to create an all-out riot of grapefruit, pineapple and lychee before a spiky, mouth-puckering bitter finish.",
+        image_url: "https://images.punkapi.com/v2/192.png",
+        abv: 6.0,
+        ibu: 60.0,
+        target_fg: 1010.0,
+        target_og: 1056.0,
+        ebc: 17.0,
+        srm: 8.5,
+        ph: 4.4,
+        attenuation_level: 82.14,
+        volume: Volume(value: 20, unit: "liters"),
+        boil_volume: Volume(value: 25, unit: "liters"),
+        method: Method(
+            mash_temp: [
+                MashTemp(
+                    temp: Volume(value: 65, unit: "celsius"),
+                    duration: 75
+                )
+            ],
+            fermentation: Fermentation(
+                temp: Volume(value: 19.0, unit: "celsius")
+            ),
+            twist: nil
+        ),
+        ingredients: Ingredients(
+            malt: [
+                Malt(
+                    name: "Extra Pale",
+                    amount: Volume(value: 5.3, unit: "kilograms")
+                )
+            ],
+            hops: [
+                Hop(
+                    name: "Ahtanum",
+                    amount: Volume(value: 17.5, unit: "grams"),
+                    add: "start",
+                    attribute: "bitter"
+                ),
+                Hop(
+                    name: "Chinook",
+                    amount: Volume(value: 15, unit: "grams"),
+                    add: "start",
+                    attribute: "bitter"
+                )
+            ],
+            yeast: "Wyeast 1056 - American Ale™"
+        ),
+        food_pairing: [
+            "Spicy carne asada with a pico de gallo sauce",
+            "Shredded chicken tacos with a mango chilli lime salsa",
+            "Cheesecake with a passion fruit swirl sauce"
+        ],
+        brewer_tips: "While it may surprise you, this version of Punk IPA isn't dry hopped but still packs a punch! To make the best of the aroma hops make sure they are fully submerged and add them just before knock out for an intense hop hit.",
+        contributed_by: "Sam Mason <samjbmason>"
+    )
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +111,7 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
                     }
                 } */
         
+        addTestBeer()
         loadBeers()
     }
     
@@ -69,7 +134,7 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         //comentadas porque estava a dar erro ao dar reset à searchbar
         //guard !isLoading && hasMoreBeers else { return }
         //isLoading = true
-
+        
         if isSearchMode{
             return
         }
@@ -95,6 +160,12 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         logoutCurrentUser()
     }
     
+    func addTestBeer() {
+        if beers.isEmpty {
+            beers.append(testBeer)
+        }
+    }
+    
     func logoutCurrentUser() {
         let currentUser = User.current
         
@@ -117,6 +188,8 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
             }
             
             shoppingCart.clearCart()
+            
+            
             
             // Exibe uma mensagem na thread principal
             DispatchQueue.main.async {
@@ -226,34 +299,29 @@ extension BeerIndex {
     
     
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            self.resetSearch()
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text, !searchText.isEmpty else {
-            resetSearch()
-            return
-        }
-        startNewSearch(withName: searchText)
-    }
-    
-    func resetSearch() {
-        DispatchQueue.main.async {
-            self.searchBar.text = nil
-            self.isSearchMode = false
-            self.beers.removeAll()
-            self.currentPage = 1
-            self.hasMoreBeers = true
-            self.collectionView.reloadData()
-            self.loadBeers()
-        }
-    }
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         if searchText.isEmpty {
+             self.resetSearch()
+         }
+     }
+     
+     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+         guard let searchText = searchBar.text, !searchText.isEmpty else {
+             resetSearch()
+             return
+         }
+         startNewSearch(withName: searchText)
+     }
+     
+     func resetSearch() {
+         DispatchQueue.main.async {
+             self.searchBar.text = nil
+             self.isSearchMode = false
+             self.beers.removeAll()
+             self.currentPage = 1
+             self.hasMoreBeers = true
+             self.collectionView.reloadData()
+             self.loadBeers()
+         }
+     }
 }
-
-
-
-
-
