@@ -17,6 +17,7 @@ class Details: UIViewController{
     @IBOutlet weak var fourthLabel: UILabel!
     @IBOutlet weak var fifthLabel: UILabel!
     
+    var shoppingCart = MyItens.shared.shoppingCart
     var beer: Beer?
     
     override func viewDidLoad() {
@@ -112,5 +113,8 @@ class Details: UIViewController{
         
         
         
+    }
+    @IBAction func addBeerButton(_ sender: Any) {
+        shoppingCart.addItem(beer!)
     }
 }

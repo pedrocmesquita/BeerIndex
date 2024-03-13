@@ -161,6 +161,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-6X-8w0">
+                                <rect key="frame" x="169.66666666666666" y="764" width="54" height="35"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="cart.badge.plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addBeerButton:" destination="JHe-Md-Rxy" eventType="touchUpInside" id="gZK-Uz-ZTf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YxB-mo-bNW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -172,9 +181,11 @@
                             <constraint firstItem="qJU-R4-FKW" firstAttribute="top" secondItem="BX7-oi-urn" secondAttribute="bottom" constant="30" id="BE9-uo-rqY"/>
                             <constraint firstItem="YxB-mo-bNW" firstAttribute="trailing" secondItem="1ek-nT-6AN" secondAttribute="trailing" constant="40" id="Hd0-eb-KKQ"/>
                             <constraint firstItem="5Rq-Zu-jmx" firstAttribute="top" secondItem="YxB-mo-bNW" secondAttribute="top" id="L8U-vP-DFR"/>
+                            <constraint firstItem="W8I-6X-8w0" firstAttribute="centerX" secondItem="Tqi-C4-Zoi" secondAttribute="centerX" id="LNC-HP-S4W"/>
                             <constraint firstItem="AiJ-J3-EGc" firstAttribute="top" secondItem="elm-bO-AX1" secondAttribute="bottom" constant="15" id="Ud3-s7-Dwl"/>
                             <constraint firstItem="YxB-mo-bNW" firstAttribute="trailing" secondItem="qJU-R4-FKW" secondAttribute="trailing" constant="30" id="Xvn-jY-iXl"/>
                             <constraint firstItem="AiJ-J3-EGc" firstAttribute="leading" secondItem="YxB-mo-bNW" secondAttribute="leading" constant="40" id="a8I-s7-b6E"/>
+                            <constraint firstItem="W8I-6X-8w0" firstAttribute="top" secondItem="1ek-nT-6AN" secondAttribute="bottom" constant="35" id="e7D-6Z-20c"/>
                             <constraint firstItem="elm-bO-AX1" firstAttribute="top" secondItem="qJU-R4-FKW" secondAttribute="bottom" constant="20" id="gRq-0I-uSk"/>
                             <constraint firstItem="5Rq-Zu-jmx" firstAttribute="centerX" secondItem="YxB-mo-bNW" secondAttribute="centerX" id="ilB-i3-OIF"/>
                             <constraint firstItem="YxB-mo-bNW" firstAttribute="trailing" secondItem="AiJ-J3-EGc" secondAttribute="trailing" constant="40" id="mU9-e8-ryz"/>
@@ -201,8 +212,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
         <image name="image-removebg-preview" width="425" height="283"/>
-        <image name="person.crop.circle.badge.xmark" catalog="system" width="128" height="114"/>
+        <image name="person.crop.circle.badge.xmark" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
