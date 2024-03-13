@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import GoogleSignIn
 
-class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddToCartDelegate {
+class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AddToCartDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var logo: UIImageView!
@@ -23,11 +23,13 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     var currentPage = 1
     var isLoading = false
     var hasMoreBeers = true
+    var isSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.backgroundImage = UIImage()
-        searchBar.placeholder = "Name or number"
+        searchBar.placeholder = "Name of the beer"
+        searchBar.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "CustomBeerCell", bundle: nil), forCellWithReuseIdentifier: "BeerCell")
@@ -64,9 +66,14 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
     }
     
     func loadBeers() {
-        guard !isLoading && hasMoreBeers else { return }
-        isLoading = true
+        //comentadas porque estava a dar erro ao dar reset à searchbar
+        //guard !isLoading && hasMoreBeers else { return }
+        //isLoading = true
 
+        if isSearchMode{
+            return
+        }
+        
         getBeers.sharedInstance.fetchBeersPagination(page: currentPage, perPage: 20) { [weak self] (fetchedBeers, error) in
             DispatchQueue.main.async {
                 self?.isLoading = false
@@ -111,8 +118,6 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
             
             shoppingCart.clearCart()
             
-            
-            
             // Exibe uma mensagem na thread principal
             DispatchQueue.main.async {
                 print("Utilizador desconectado de todos os serviços")
@@ -126,6 +131,33 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
             
         }
     }
+    
+    func startNewSearch(withName name: String) {
+            isSearchMode = true
+            currentPage = 1
+            hasMoreBeers = true
+            beers.removeAll()
+            collectionView.reloadData()
+            
+            searchBeers(byName: name)
+    }
+        
+    func searchBeers(byName name: String) {
+        getBeers.sharedInstance.fetchBeersByName(name: name) { [weak self] (fetchedBeers, error) in
+            DispatchQueue.main.async {
+                if let fetchedBeers = fetchedBeers {
+                    self?.beers = fetchedBeers
+                    self?.collectionView.reloadData()
+                } else if let error = error {
+                    print("Error fetching beers by name: \(error.localizedDescription)")
+                }
+            }
+        }
+            // Reset search bar
+            searchBar.text = nil
+            searchBar.resignFirstResponder()
+    }
+    
 }
 
 extension BeerIndex {
@@ -192,7 +224,35 @@ extension BeerIndex {
         }
     }
     
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.resetSearch()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else {
+            resetSearch()
+            return
+        }
+        startNewSearch(withName: searchText)
+    }
+    
+    func resetSearch() {
+        DispatchQueue.main.async {
+            self.searchBar.text = nil
+            self.isSearchMode = false
+            self.beers.removeAll()
+            self.currentPage = 1
+            self.hasMoreBeers = true
+            self.collectionView.reloadData()
+            self.loadBeers()
+        }
+    }
 }
+
 
 
 

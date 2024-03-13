@@ -75,6 +75,22 @@ class getBeers {
             }
         }
     }
-
+    
+    func fetchBeersByName(name: String, completion: @escaping ([Beer]?, Error?) -> Void) {
+        let url = "https://api.punkapi.com/v2/beers?beer_name=\(name)"
+        AF.request(url).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let jsonData = try JSONDecoder().decode([Beer].self, from: data)
+                    completion(jsonData, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
 }
 
