@@ -69,9 +69,9 @@ class Details: UIViewController{
         
         // DESCRIPTION
         
-        var description = NSMutableAttributedString(string: "")
-        var attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)]
-        var boldString = NSAttributedString(string: "Description: ", attributes: attrs)
+        let description = NSMutableAttributedString(string: "")
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)]
+        let boldString = NSAttributedString(string: "Description: ", attributes: attrs)
         description.append(boldString)
         
         if let beerDescription = beer?.description {
@@ -84,8 +84,8 @@ class Details: UIViewController{
         
         // VOLUME
         
-        var volume = NSMutableAttributedString(string: "")
-        var boldString3 = NSAttributedString(string: "Volume: ", attributes: attrs)
+        let volume = NSMutableAttributedString(string: "")
+        let boldString3 = NSAttributedString(string: "Volume: ", attributes: attrs)
         volume.append(boldString3)
         
         if let beerUnit = beer?.volume?.value, let beerValue = beer?.volume?.unit {
@@ -99,8 +99,8 @@ class Details: UIViewController{
         
         // FIRST BREWED
         
-        var since = NSMutableAttributedString(string: "")
-        var boldString2 = NSAttributedString(string: "First Brewed in: ", attributes: attrs)
+        let since = NSMutableAttributedString(string: "")
+        let boldString2 = NSAttributedString(string: "First Brewed in: ", attributes: attrs)
         since.append(boldString2)
         
         if let beerSince = beer?.first_brewed {
