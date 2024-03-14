@@ -302,6 +302,149 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
         brewer_tips: "For a burst of citrus aroma, consider adding a zest of lemon or orange during the last few minutes of the boil.",
         contributed_by: "Alexandra Lee <alexlee>"
     )
+    
+    let beer5 = Beer(
+        id: 196,
+        name: "Golden Ale",
+        tagline: "Crisp. Smooth. Balanced.",
+        first_brewed: "03/2023",
+        description: "Experience the perfect balance of malt sweetness and hop bitterness with our Golden Ale. Brewed with a blend of premium malts and noble hops, this beer offers a crisp and refreshing taste with hints of biscuit and floral notes, making it ideal for any occasion.",
+        image_url: "https://images.punkapi.com/v2/194.png",
+        abv: 5.2,
+        ibu: 25.0,
+        target_fg: 1012.0,
+        target_og: 1048.0,
+        ebc: 10.0,
+        srm: 5.0,
+        ph: 4.2,
+        attenuation_level: 75.0,
+        volume: Volume(value: 20, unit: "liters"),
+        boil_volume: Volume(value: 25, unit: "liters"),
+        method: Method(
+            mash_temp: [
+                MashTemp(
+                    temp: Volume(value: 65, unit: "celsius"),
+                    duration: 60
+                )
+            ],
+            fermentation: Fermentation(
+                temp: Volume(value: 18.0, unit: "celsius")
+            ),
+            twist: nil
+        ),
+        ingredients: Ingredients(
+            malt: [
+                Malt(
+                    name: "Pale Ale",
+                    amount: Volume(value: 3.5, unit: "kilograms")
+                ),
+                Malt(
+                    name: "Munich",
+                    amount: Volume(value: 0.5, unit: "kilograms")
+                )
+            ],
+            hops: [
+                Hop(
+                    name: "Saaz",
+                    amount: Volume(value: 20, unit: "grams"),
+                    add: "start",
+                    attribute: "bitter"
+                ),
+                Hop(
+                    name: "Tettnang",
+                    amount: Volume(value: 15, unit: "grams"),
+                    add: "middle",
+                    attribute: "flavour"
+                )
+            ],
+            yeast: "Wyeast 1056 - American Ale™"
+        ),
+        food_pairing: [
+            "Grilled chicken with lemon and herbs",
+            "Roasted root vegetables",
+            "Shortbread cookies"
+        ],
+        brewer_tips: "For a crisper finish, consider extending the fermentation period by a few days at a lower temperature.",
+        contributed_by: "John Doe <john.doe>"
+    )
+
+    let beer6 = Beer(
+        id: 197,
+        name: "Imperial Stout",
+        tagline: "Bold. Robust. Velvety.",
+        first_brewed: "11/2022",
+        description: "Indulge in the luxurious flavors of our Imperial Stout. Brewed with an abundance of roasted barley and specialty malts, this beer boasts intense notes of dark chocolate, espresso, and molasses, balanced by a rich, velvety mouthfeel and a warming alcohol presence.",
+        image_url: "https://images.punkapi.com/v2/195.png",
+        abv: 9.5,
+        ibu: 60.0,
+        target_fg: 1020.0,
+        target_og: 1095.0,
+        ebc: 90.0,
+        srm: 45.0,
+        ph: 4.0,
+        attenuation_level: 78.95,
+        volume: Volume(value: 20, unit: "liters"),
+        boil_volume: Volume(value: 25, unit: "liters"),
+        method: Method(
+            mash_temp: [
+                MashTemp(
+                    temp: Volume(value: 68, unit: "celsius"),
+                    duration: 75
+                )
+            ],
+            fermentation: Fermentation(
+                temp: Volume(value: 18.0, unit: "celsius")
+            ),
+            twist: "Aged in bourbon barrels for 6 months"
+        ),
+        ingredients: Ingredients(
+            malt: [
+                Malt(
+                    name: "Maris Otter",
+                    amount: Volume(value: 4.0, unit: "kilograms")
+                ),
+                Malt(
+                    name: "Roasted Barley",
+                    amount: Volume(value: 1.5, unit: "kilograms")
+                ),
+                Malt(
+                    name: "Chocolate",
+                    amount: Volume(value: 0.5, unit: "kilograms")
+                ),
+                Malt(
+                    name: "Crystal 150",
+                    amount: Volume(value: 0.5, unit: "kilograms")
+                ),
+                Malt(
+                    name: "Flaked Oats",
+                    amount: Volume(value: 0.5, unit: "kilograms")
+                )
+            ],
+            hops: [
+                Hop(
+                    name: "Fuggles",
+                    amount: Volume(value: 50, unit: "grams"),
+                    add: "start",
+                    attribute: "bitter"
+                ),
+                Hop(
+                    name: "East Kent Goldings",
+                    amount: Volume(value: 25, unit: "grams"),
+                    add: "middle",
+                    attribute: "flavour"
+                )
+            ],
+            yeast: "Wyeast 1098 - British Ale™"
+        ),
+        food_pairing: [
+            "Beef Wellington",
+            "Dark chocolate truffles",
+            "Vanilla bean ice cream affogato"
+        ],
+        brewer_tips: "To enhance the bourbon notes, consider adding oak chips to the secondary fermentation.",
+        contributed_by: "Jane Smith <jane.smith>"
+    )
+
 
 
 
@@ -383,6 +526,8 @@ class BeerIndex: UIViewController, UICollectionViewDataSource, UICollectionViewD
             beers.append(beer2)
             beers.append(beer3)
             beers.append(beer4)
+            beers.append(beer5)
+            beers.append(beer6)
         }
     }
     
