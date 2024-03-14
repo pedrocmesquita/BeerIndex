@@ -15,10 +15,13 @@ class Cart {
             // If the beer is already in the cart, add one to the quantity
             print("add \(String(describing: beer.name))")
             items[beer] = existingQuantity + 1
+            NotificationCenter.default.post(name: Notification.Name("ShoppingListDidChange"), object: nil)
         } else {
             // If the beer is not in the cart, add it with a quantity of 1
             print("added \(String(describing: beer.name))")
             items[beer] = 1
+            
+            NotificationCenter.default.post(name: Notification.Name("ShoppingListDidChange"), object: nil)
         }
     }
     
@@ -30,6 +33,7 @@ class Cart {
         if let existingQuantity = items[beer] {
             let newQuantity = max(0, existingQuantity + delta) // Ensure the quantity is never negative
             items[beer] = newQuantity
+            NotificationCenter.default.post(name: Notification.Name("ShoppingListDidChange"), object: nil)
         } else {
             // If the beer is not in the cart, there is nothing to do
             print("Error: Beer \(beer.name ?? "unknown") is not in the cart.")
@@ -62,4 +66,7 @@ class Cart {
 class MyItens {
     static let shared = MyItens()
     var shoppingCart = Cart()
+    var isShoppingListEmpty: Bool {
+        return shoppingCart.items.isEmpty
+    }
 }

@@ -11,8 +11,16 @@ import UIKit
 class ShoppingCart: UIViewController{
     
     @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var buyButton: UIButton!
     
-    var shoppingCart = MyItens.shared.shoppingCart
+    //var shoppingCart = MyItens.shared.shoppingCart
+    
+    var shoppingCart = MyItens.shared.shoppingCart {
+            didSet {
+                // Atualizar o estado do botão de compra sempre que o carrinho for atualizado
+                updateBuyButtonState()
+            }
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +30,30 @@ class ShoppingCart: UIViewController{
         
         table.register(CustomCartCell.nib(), forCellReuseIdentifier: CustomCartCell.identifier)
         
+        updateBuyButtonState()
+        
+        // Adicionar um alvo para o botão de compra
+        buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
+    }
+            
+    // Atualizar o estado do botão de compra com base na contagem de itens no carrinho
+    func updateBuyButtonState() {
+        buyButton.isEnabled = !shoppingCart.items.isEmpty
+    }
+            
+    // Método chamado quando o botão de compra é pressionado
+    @objc func buyButtonTapped() {
+        if shoppingCart.items.isEmpty {
+            showMessage(title: "Empty Cart", message: "Your shopping cart is empty.")
+        } else {
+            // Limpar o carrinho
+            shoppingCart.clearCart()
+            table.reloadData()
+            
+            self.updateBuyButtonState()
+            
+            showMessage(title: "Successful purchase", message: "Your purchase was successful.")
+        }
     }
     
 }
@@ -67,6 +99,8 @@ extension ShoppingCart: UITableViewDataSource, UITableViewDelegate {
             // Decrementar a quantidade quando o botão de remover é pressionado
             self.shoppingCart.removeQuantity(for: beer, quantityToRemove: 1)
             tableView.reloadData() // Atualizar a tabela após a alteração na quantidade
+            
+            self.updateBuyButtonState()
         }
         
         return cell
@@ -94,6 +128,9 @@ extension ShoppingCart: UITableViewDataSource, UITableViewDelegate {
             
             // Remover a célula da tabela
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            //se o carrinho estiver bazio atualizar o estado do carrinho
+            self.updateBuyButtonState()
             
             completionHandler(true)
         }
